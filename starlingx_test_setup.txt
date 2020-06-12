@@ -1,0 +1,21 @@
+# download the repo
+git clone https://opendev.org/starlingx/test.git
+
+# switch the branch if need 
+cd test/
+git checkout xxx
+
+# Download the dependence for stx-openstack and pytest 
+# Important! Need  > python3.6.8 
+pip install -r ~/test/automated-pytest-suite/requirements.txt
+
+# set the environment
+export project_root=<automated-pytest-suite dir>
+export PYTHONPATH=${PYTHONPATH}:${project_root}
+cd $project_root
+
+# set the testing condfiguration
+
+
+# test
+pytest -m platform_sanity --testcase-config=~/my_config.conf testcases/

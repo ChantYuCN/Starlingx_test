@@ -1,0 +1,41 @@
+# We are going to examine the horizon funciton. 
+# Before executing, some process should ready.
+
+# 1. install xvfb   
+#https://www.puritys.me/docs-blog/article-262-%E5%AE%89%E8%A3%9D-XVFB-%E5%81%9A-Selenium-%E6%B8%AC%E8%A9%A6.html
+sudo yum install xorg-x11-server-Xvfb
+
+# 2. downgrade the geckodriver to v0.21 (refer to P.S. list in beneth)
+#https://stackoverflow.com/questions/49789963/org-openqa-selenium-sessionnotcreatedexception-unable-to-find-a-matching-set-of
+# Download the package on website
+# https://github.com/mozilla/geckodriver/releases/tag/v0.21.0
+# unzip and put the efi file into /usr/local/bin/
+# p.s make a PATH Pexport PATH=$PATH:/usr/local/sbin
+
+# 3. Need a firefox.bin managed by FirefoxBinary(object)
+#https://support.mozilla.org/zh-TW/kb/install-firefox-linux
+sudo yum -y install firefox
+
+
+# 4. Need ffmpeg to solve multimedia files
+#https://linuxize.com/post/how-to-install-ffmpeg-on-centos-7/
+#https://blog.hoyo.idv.tw/?p=3039
+#https://www.binarycomputer.solutions/install-ffmpeg-centos-8-yum-dnf/
+#????https://linuxize.com/post/how-to-install-ffmpeg-on-centos-8/
+sudo yum install yum-utils
+#centos 7
+sudo yum install epel-release
+sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+#centos 8
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
+sudo yum install http://rpmfind.net/linux/epel/7/x86_64/Packages/s/SDL2-2.0.10-1.el7.x86_64.rpm
+#
+sudo yum install ffmpeg ffmpeg-devel
+
+
+P.S.
+requirement-binding-verision
+geckodriver Selenium Firefox
+https://stackoverflow.com/questions/52474999/how-to-fix-python-selenium-error-connection-refused-when-initializing-a-seleni
+
